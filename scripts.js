@@ -17,8 +17,17 @@ let arrayOfTodos = [
 const fetchTodos = () => {
     fetch('https://reqres.in/api/users')
     // ('https://jsonplaceholder.typicode.com/todos')
-    .then((response) => response.json())
-    .then((json) => arrayOfTodos = json)
+    .then(function(response) {
+        return response.json()
+    })
+    .then(function(data) {
+        console.log(data)
+        const ol = document.getElementById('todo-list')
+        ol.innerHTML = 
+        `
+            <img src="${data.data[0].avatar}">
+        `
+    })
 }
 
 const logTodos = () => {
@@ -26,8 +35,10 @@ const logTodos = () => {
 }
 
 const populateTodos = () => {
-    const ol = document.getElementById('todo-list')
-    let li = document.createElement('LI')
-    li.appendChild(document.createTextNode(arrayOfTodos[0].title))
-    ol.appendChild(li)
+    for (let i = 0; i < arrayOfTodos.length; i++) {
+        const ol = document.getElementById('todo-list')
+        let li = document.createElement('LI')
+        li.appendChild(document.createTextNode(arrayOfTodos[i].title))
+        ol.appendChild(li)
+    }
 }
