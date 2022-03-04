@@ -8,11 +8,19 @@
         <script src="scripts.js"></script>
     </head>
     <body>
-        <button onclick="fetchTodos()">Fetch Todos</button>
-        <button onclick="logTodos()">Log Todos</button>
-        <button onclick="populateTodos()">Populate Todos</button>
-        <ol id="todo-list">
-            <!-- LIs will go here -->
-        </ol>
+      <label for="number">Please enter a number from 1 to 10:</label>
+      <input type="number" id="number" name="number" value="" min="1" max="10">
+      <input onclick="fetchTodos()" type="button" value="Submit">
+      <input onclick="clearTodos()" type="button" value="Clear Todos">
+      <input onclick="clearCompleted()" type="button" value="Clear Completed">
+      <input onclick="clearNotCompleted()" type="button" value="Clear Not Completed">
+      <input onclick="completed()" type="button" value="Completed">
+      <input onclick="notCompleted()" type="button" value="Not Completed">
+      <ol id='todo-list'>
+      </ol>
+      <ol id='completed'>
+      </ol>
+      <ol id='not-completed'>
+      </ol>
     </body>
 </html>
